@@ -7,7 +7,7 @@
       <div class="flex flex-col gap-2 md:items-start md:text-left">
         <p class="text-sm">Current Balance</p>
         <h1 class="text-3xl font-bold">
-          <span>$</span>{{ userData.accountBalance }}
+          <span>$</span>{{ formatNumber(userData.accountBalance) }}
         </h1>
         <p class="text-sm">
           <i class="fa-solid fa-right-left text-[0.7rem] mr-1"></i>0.0000
@@ -24,7 +24,7 @@
             </p>
           </router-link>
         </transition>
-        <router-link to="/wallet/withdraw">
+        <router-link to="/wallet/assets">
           <p class="bg-gray-800 font-bold text-white py-2 px-10 rounded-md">
             Wallet
           </p>
@@ -127,6 +127,13 @@ export default {
     this.fetchTopCoins();
   },
   methods: {
+    formatNumber(value) {
+      return new Intl.NumberFormat("en-US", {
+        style: "decimal",
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      }).format(value);
+    },
     formatDate(dateString) {
       const options = { day: "2-digit", month: "2-digit", year: "numeric" };
       return new Date(dateString).toLocaleDateString("en-GB", options);
