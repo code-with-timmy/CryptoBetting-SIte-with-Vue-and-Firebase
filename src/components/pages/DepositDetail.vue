@@ -47,11 +47,8 @@
         OR click <span class="font-bold">Edit</span> to change deposit options.
       </p>
     </div>
-    <div class="grid grid-cols-2 justify-between gap-5 text-[1.1rem]">
-      <button class="bg-secondary font-medium py-2 rounded-md">Edit</button>
-      <button class="bg-gray-800 font-medium py-2 rounded-md inline">
-        Verify payments
-      </button>
+    <div class="w-full gap-5 text-[1.1rem]">
+      <p class="text-secondary">Wait for @Admin to confirm Deposit</p>
     </div>
   </section>
 </template>
@@ -59,6 +56,7 @@
 <script>
 import TheHeader from "../layouts/TheHeader.vue";
 import { ref, get } from "firebase/database";
+
 import { db } from "@/firebase";
 import DialogModel from "../UI/DialogModel.vue";
 export default {
@@ -173,3 +171,16 @@ export default {
   },
 };
 </script>
+<style scoped>
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 90%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+</style>

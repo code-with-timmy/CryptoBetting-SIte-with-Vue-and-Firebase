@@ -204,8 +204,11 @@
             id="amount"
             class="bg-gray-800 w-full border-2 border-gray-600 rounded-sm p-1 px-2"
             placeholder="0.00"
+            required=""
+            @input="validateDeposit"
           />
           <button
+            :disabled="isAmountEmpty"
             type="submit"
             class="bg-secondary text-primary font-medium mt-3 w-[50%] px-5 py-1"
           >
@@ -229,6 +232,7 @@ export default {
       activeTab: "Bitcoin (BTC)",
       amount: 0,
       isLoading: false,
+      isAmountEmpty: false,
     };
   },
 
@@ -251,7 +255,13 @@ export default {
     switchTab(tab) {
       this.activeTab = tab;
     },
+    validateDeposit() {
+      this.isAmountEmpty = this.amount < 1;
+    },
     async submitDeposit() {
+      if (this.amount < 1) {
+        return;
+      }
       this.isLoading = true;
       try {
         const depositId = await this.addDeposit({

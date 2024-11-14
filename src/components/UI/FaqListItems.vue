@@ -37,7 +37,7 @@ export default {
         },
         {
           title: "HOW TO PLACE A BETTING?    ",
-          subtitle: `Placing a bet with 365PUNT is simple and straightforward. To participate in betting, your account must be verified.
+          subtitle: `Placing a bet with ANON360 is simple and straightforward. To participate in betting, your account must be verified.
 
 Once you've created an account, log in to your dashboard, navigate to account verification, and follow the instructions to verify your account.
 
