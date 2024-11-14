@@ -10,7 +10,8 @@
           <span>$</span>{{ formatNumber(userData.accountBalance) }}
         </h1>
         <p class="text-sm">
-          <i class="fa-solid fa-right-left text-[0.7rem] mr-1"></i>0.0000
+          <i class="fa-solid fa-right-left text-[0.7rem] mr-1"></i
+          >{{ btcBalance }}
           <span>BTC</span>
         </p>
       </div>
@@ -100,10 +101,16 @@
 
 <script>
 import { mapState, mapActions } from "vuex";
-
+import axios from "axios";
 import TheHeader from "../layouts/TheHeader.vue";
 
 export default {
+  data() {
+    return {
+      btcPrice: null,
+      btcBalance: null,
+    };
+  },
   components: {
     TheHeader,
   },
@@ -125,8 +132,27 @@ export default {
   created() {
     this.$store.dispatch("fetchUser");
     this.fetchTopCoins();
+    this.fetchBTCPrice();
   },
   methods: {
+    async fetchBTCPrice() {
+      try {
+        const response = await axios.get(
+          "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd"
+        );
+        this.btcPrice = response.data.bitcoin.usd;
+        this.convertToBTC();
+      } catch (error) {
+        console.error("Error fetching BTC price:", error);
+      }
+    },
+    convertToBTC() {
+      if (this.btcPrice) {
+        this.btcBalance = (
+          this.userData.accountBalance / this.btcPrice
+        ).toFixed(8);
+      }
+    },
     formatNumber(value) {
       return new Intl.NumberFormat("en-US", {
         style: "decimal",
