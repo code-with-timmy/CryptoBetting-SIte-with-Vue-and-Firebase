@@ -148,6 +148,7 @@ export default {
     },
     convertToBTC() {
       if (this.btcPrice) {
+        console.log(this.userData.accountBalance);
         this.btcBalance = (
           this.userData.accountBalance / this.btcPrice
         ).toFixed(8);

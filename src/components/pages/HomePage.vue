@@ -55,9 +55,15 @@
         <img src="" alt="" />
       </div>
     </div>
-    <div class="flex flex-col justify-items-center items-center p-4">
-      <h1 class="text-white text-lg font-bold w-[90%] text-center mb-5">
-        Let's help you clear up your mortgage debt and get you a better home
+    <div
+      class="flex flex-col justify-items-center items-center p-4 border-t border-t-gray-400"
+    >
+      <h1
+        class="text-white text-lg font-bold w-[90%] text-center mb-5 uppercase"
+      >
+        Let's help you clear up your
+        <span class="text-secondary text-xl">mortgage debt</span> and get you a
+        better home
       </h1>
       <div class="flex gap-3 flex-col">
         <div

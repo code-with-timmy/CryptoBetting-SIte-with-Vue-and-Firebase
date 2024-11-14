@@ -52,7 +52,7 @@ const router = createRouter({
       props: true,
     },
     {
-      path: "/wallet/asset",
+      path: "/wallet/assets",
       component: WithdrawPage,
       meta: { requiresAuth: true },
     },

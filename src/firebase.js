@@ -16,12 +16,12 @@ import { getDatabase } from "firebase/database";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: process.env.VUE_APP_FIREBASE_API_KEY,
-  authDomain: process.env.VUE_APP_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.VUE_APP_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.VUE_APP_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.VUE_APP_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.VUE_APP_FIREBASE_APP_ID,
+  apiKey: "AIzaSyBaqcs5O66bdd3qXhvUh_EWu83eEDtDC3g",
+  authDomain: "bet360-fde7c.firebaseapp.com",
+  projectId: "bet360-fde7c",
+  storageBucket: "bet360-fde7c.firebasestorage.app",
+  messagingSenderId: "279343036718",
+  appId: "1:279343036718:web:ee407e6fd444cc701122bf",
 };
 
 // Initialize Firebase

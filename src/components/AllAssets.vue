@@ -3,7 +3,7 @@
     <div class="rounded-sm p-5 flex flex-col gap-1">
       <p>Total Value</p>
       <h1 class="font-bold text-xl">
-        $<span>{{ formatNumber(accountBalance) }}</span
+        $<span>{{ formatNumber(userData.accountBalance) }}</span
         >***
       </h1>
       <div
@@ -13,7 +13,7 @@
         <div class="p-5 flex justify-between">
           <p>Spot Balance</p>
           <p>
-            $ <span>{{ formatNumber(accountBalance) }}</span>
+            $ <span>{{ formatNumber(userData.accountBalance) }}</span>
           </p>
         </div>
         <p class="p-5 text-sm text-justify">
@@ -29,8 +29,8 @@
 <script>
 export default {
   computed: {
-    accountBalance() {
-      return this.$store.state.userData.accountBalance || "0.00";
+    userData() {
+      return this.$store.state.user;
     },
   },
   methods: {
