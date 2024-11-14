@@ -14,10 +14,12 @@
             <span><i class="fa-solid fa-arrow-down text-[0.7rem]"></i></span>
           </button>
         </router-link>
-        <button class="bg-white px-7 rounded-sm py-1 md:py-2">
-          Withdraw
-          <span><i class="fa-solid fa-arrow-up text-[0.7rem]"></i></span>
-        </button>
+        <router-link to="/wallet/withdraw">
+          <button class="bg-white px-7 rounded-sm py-1 md:py-2 w-full">
+            Withdraw
+            <span><i class="fa-solid fa-arrow-up text-[0.7rem]"></i></span>
+          </button>
+        </router-link>
       </div>
     </div>
   </section>

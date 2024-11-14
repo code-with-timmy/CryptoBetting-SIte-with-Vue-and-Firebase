@@ -2,7 +2,7 @@
   <section class="text-center w-full h-100% text-white px-5">
     <div class="mt-6 text-sm border-b border-gray-500 pb-7">
       <h1 class="font-bold">withdrawal history</h1>
-      <p class="text-gray-400 mt-3">Tap to open</p>
+
       <div
         class="flex justify-between mt-6 text-sm gap-2"
         v-for="transaction in recentTransactions"
@@ -16,9 +16,11 @@
         </div>
         <div>
           <p>
-            $<span>{{ transaction.amount }}</span>
+            $<span>{{ formatNumber(transaction.amount) }}</span>
           </p>
-          <p class="text-gray-400">Successful</p>
+          <p class="text-gray-400">
+            {{ transaction.success ? "successful" : "pending approval" }}
+          </p>
         </div>
       </div>
     </div>
@@ -37,6 +39,13 @@ export default {
       const month = String(date.getMonth() + 1).padStart(2, "0");
       const year = date.getFullYear();
       return `${day}-${month}-${year}`;
+    },
+    formatNumber(value) {
+      return new Intl.NumberFormat("en-US", {
+        style: "decimal",
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      }).format(value);
     },
   },
   created() {

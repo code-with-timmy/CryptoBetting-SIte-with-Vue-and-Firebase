@@ -77,14 +77,19 @@
             v-for="deposit in recentDeposits"
             :key="deposit.id"
           >
-            <div class="flex gap-3 items-center">
+            <div class="flex gap-3 items-center text-sm">
               <div class="text-white text-sm px-2 py-1 rounded-sm bg-green-500">
                 <i class="fa-solid fa-arrow-down"></i>
               </div>
               <p class="font-medium">Deposit</p>
             </div>
-            <p>{{ formatDate(deposit.date) }}</p>
-            <p class="font-medium"><span>$</span>{{ deposit.amount }}</p>
+            <p class="text-sm">{{ formatDate(deposit.date) }}</p>
+            <p class="font-medium text-sm">
+              <span>$</span>{{ deposit.amount }}
+            </p>
+            <p class="text-sm">
+              {{ deposit.status ? "successful" : "pending.." }}
+            </p>
           </div>
         </div>
       </div>

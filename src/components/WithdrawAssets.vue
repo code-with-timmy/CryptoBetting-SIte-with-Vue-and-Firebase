@@ -204,7 +204,15 @@
             id="amount"
             class="bg-gray-800 w-full border-2 border-gray-600 rounded-sm p-1 px-2"
             placeholder="0.00"
+            @input="validateAmount"
+            required=""
           />
+          <p v-if="!isAmountValid" class="text-sm text-secondary">
+            *Mininim withdrawal is {{ miniWithdraw }}
+          </p>
+          <p v-if="isAmountExceedsBalance" class="text-sm text-secondary">
+            *Invalid amount! (amount withdrawn is above Balance)
+          </p>
           <p class="text-sm">Address</p>
           <input
             v-model="address"
@@ -213,13 +221,13 @@
             id="text"
             class="bg-gray-800 w-full border-2 border-gray-600 rounded-sm p-1 px-2"
             placeholder="0xxxxx"
+            required=""
           />
-          <p v-if="checkAmount" class="text-sm text-secondary">
-            *Mininim withdrawal is {{ miniWithdraw }}
-          </p>
+
           <button
             type="submit"
             class="bg-secondary text-primary font-medium mt-3 w-[50%] px-5 py-1"
+            :disabled="!isAmountValid || isAmountExceedsBalance"
           >
             Withdraw <i class="fa-solid fa-arrow-right"></i>
           </button>
@@ -237,7 +245,7 @@
 <script>
 import TheSpinner from "./UI/TheSpinner.vue";
 import { db } from "@/firebase";
-import { ref, push, update } from "firebase/database";
+import { ref, push } from "firebase/database";
 import { mapGetters } from "vuex";
 import DialogModel2 from "./UI/DialogModel2.vue";
 export default {
@@ -252,9 +260,10 @@ export default {
       address: "",
       isLoading: false,
       miniWithdraw: 300000,
-      checkAmount: false,
       showDialog: false,
       dialogMessage: "",
+      isAmountValid: true,
+      isAmountExceedsBalance: false,
     };
   },
 
@@ -274,16 +283,15 @@ export default {
     ...mapGetters(["user"]),
   },
   methods: {
+    validateAmount() {
+      this.isAmountValid = !(this.amount < this.miniWithdraw);
+      this.isAmountExceedsBalance = this.user.accountBalance < this.amount;
+    },
     switchTab(tab) {
       this.activeTab = tab;
     },
     async submitWithdrawal() {
-      if (this.amount <= this.miniWithdraw) {
-        this.checkAmount = true;
-        return;
-      }
-      if (this.user.currentBalance < this.amount) {
-        this.showDialogMessage("Insufficient balance for this withdrawal.");
+      if (!this.isAmountValid || this.isAmountExceedsBalance) {
         return;
       }
       try {
@@ -291,24 +299,20 @@ export default {
           amount: this.amount,
           type: this.activeTab,
           address: this.address,
-          status: "pending",
+          success: false,
           timestamp: new Date().toISOString(),
         };
-        const userRef = ref(db, `users/${this.user.uid}`);
+
         const withdrawalRef = ref(
           db,
           `users/${this.user.uid}/pendingWithdrawals`
         );
         await push(withdrawalRef, newWithdrawal);
-        const amount = Number(this.amount);
-        const currentAmount = Number(this.user.accountBalance);
-        const newBalance = currentAmount - amount;
-        await update(userRef, { accountBalance: Number(newBalance) });
-        this.showDialogMessage("Withdrawal Successful");
+
+        this.showDialogMessage("Withdrawal Placed, wait for @Admin to verify");
         this.amount = null;
         this.activeTab = "";
         this.address = "";
-        this.checkAmount = false;
       } catch (error) {
         console.error("Error creating withdrawal request:", error);
         this.showDialogMessage(
