@@ -261,28 +261,34 @@
       >
         <i class="fa-solid fa-xmark"></i>
       </div>
-      <div class="w-full flex flex-col gap-4">
-        <div
-          class="h-[200px] w-full text-center flex justify-center justify-items-center items-center bg-cover bg-center bg-[url('https://th.bing.com/th/id/OIP.yKLFWKUZWCbBHsgB_lX6JQHaDt?w=350&h=175&c=7&r=0&o=5&dpr=1.3&pid=1.7')]"
-        ></div>
-        <p class="text-secondary" v-if="showAdmin">Contact @admin Now!!!</p>
-        <button
-          @click="toggleAdmin"
-          class="bg-secondary text-primary w-fit mx-auto px-4 rounded-md mt-1 font-bold py-2"
-        >
-          FIXED MATCH
-        </button>
-        <div
-          :style="backgroundStyle"
-          class="h-[200px] w-full text-center mt-4 flex justify-center justify-items-center items-center bg-cover bg-center"
-        ></div>
-        <p class="text-secondary" v-if="showAdmin2">Contact @admin Now!!!</p>
-        <button
-          @click="toggleAdmin2"
-          class="bg-secondary text-primary w-fit mx-auto px-4 rounded-md mt-1 font-bold py-2"
-        >
-          CLEAR YOUR MORTGAGE
-        </button>
+      <div
+        class="w-full flex flex-col h-full justify-items-center justify-center"
+      >
+        <div class="flex flex-col gap-5">
+          <div
+            class="h-[200px] w-full text-center flex justify-center justify-items-center items-center bg-cover bg-center bg-[url('https://th.bing.com/th/id/OIP.yKLFWKUZWCbBHsgB_lX6JQHaDt?w=350&h=175&c=7&r=0&o=5&dpr=1.3&pid=1.7')]"
+          ></div>
+          <p class="text-secondary" v-if="showAdmin">Contact @admin Now!!!</p>
+          <button
+            @click="toggleAdmin"
+            class="bg-secondary text-primary w-fit mx-auto px-4 rounded-md font-bold py-2"
+          >
+            FIXED MATCH
+          </button>
+        </div>
+        <div class="flex flex-col gap-5">
+          <div
+            :style="backgroundStyle"
+            class="h-[200px] w-full text-center mt-4 flex justify-center justify-items-center items-center bg-cover bg-center"
+          ></div>
+          <p class="text-secondary" v-if="showAdmin2">Contact @admin Now!!!</p>
+          <button
+            @click="toggleAdmin2"
+            class="bg-secondary text-primary w-fit mx-auto px-4 rounded-md font-bold py-2"
+          >
+            CLEAR YOUR MORTGAGE
+          </button>
+        </div>
       </div>
     </div>
   </div>
