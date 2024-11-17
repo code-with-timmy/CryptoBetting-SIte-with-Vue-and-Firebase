@@ -37,7 +37,9 @@
     <div
       class="bg-primary text-white p-7 text-center flex flex-col gap-5 fade-in"
     >
-      <h3 class="text-xl font-bold">Welcome to the Future of Crypto Betting</h3>
+      <h3 class="text-xl font-bold">
+        Welcome to the anonymous fixed match gambling with zero chance of losing
+      </h3>
       <p>
         Discover our state-of-the-art gamification platform developed by
         ANON360, meticulously designed to engage your audience and drive their
