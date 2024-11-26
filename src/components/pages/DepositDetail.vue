@@ -77,7 +77,7 @@ export default {
           name: "Bitcoin (BTC)",
           img: "Bitcoin(BTC)",
           address:
-            "bc1p95flksd62jy4gjuwgwwlm6kp93cxed7e3dfxvgp4eve0qzzvl0tsh8pgyq",
+            "bc1q87sqcmu5k77vmcmgw46gtv42egs58tv2qhqfmc",
         },
         {
           name: "Ethereum (ETH)",
