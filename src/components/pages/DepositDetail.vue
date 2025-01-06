@@ -77,22 +77,22 @@ export default {
           name: "Bitcoin (BTC)",
           img: "Bitcoin(BTC)",
           address:
-            "bc1p95flksd62jy4gjuwgwwlm6kp93cxed7e3dfxvgp4eve0qzzvl0tsh8pgyq",
+            "bc1q87sqcmu5k77vmcmgw46gtv42egs58tv2qhqfmc",
         },
         {
           name: "Ethereum (ETH)",
           img: "Ethereum(ETH)",
-          address: "0x4245b4e547485e9eb99a0fe102ba819b70055418",
+          address: "0x203c156e56eb458224359f8c153fb1013c45564e",
         },
         {
           name: "Tether (USDT)",
           img: "Tether(USDT)",
-          address: "TTgSXP74ZbPy8ymPDUt5voTGg3QQgMLs9o",
+          address: "0x203c156e56eb458224359f8c153fb1013c45564e",
         },
         {
           name: "Binance (BNB)",
           img: "Binance(BNB)",
-          address: "0x4245b4e547485e9eb99a0fe102ba819b70055418",
+          address: "0x203c156e56eb458224359f8c153fb1013c45564e",
         },
       ],
     };
