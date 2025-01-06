@@ -38,21 +38,15 @@
       class="bg-primary text-white p-7 text-center flex flex-col gap-5 fade-in"
     >
       <h3 class="text-xl font-bold">
-        Welcome to the anonymous fixed match gambling with zero chance of losing
+        Welcome to the anonymous fixed ticket, a platform sponsored by the
+        Anonymous community and Bank of America partnering with binance and
+        bybit.
       </h3>
       <p>
-        Discover our state-of-the-art gamification platform developed by
-        ANON360, meticulously designed to engage your audience and drive their
-        participation.
+        This platform is designed to make all the Anonymous tickets subscribers
+        make enough money to finance a better standard of living
       </p>
-      <p>
-        Monetize your fans’ active engagement through innovative entertainment
-        options, including interactive sports quizzes and trivia games.
-      </p>
-      <p>
-        Leverage the power of gamification to enhance user engagement and
-        retention.
-      </p>
+
       <div>
         <img src="" alt="" />
       </div>
@@ -82,6 +76,7 @@
         </button>
       </div>
     </div>
+    <the-feature></the-feature>
     <div
       class="bg-secondary text-white p-7 text-center flex flex-col gap-5 fade-in"
     >
@@ -305,10 +300,13 @@
 <script>
 import FaqListItems from "../UI/FaqListItems.vue";
 import TheHeader from "../layouts/TheHeader.vue";
+import TheFeature from "../UI/TheFeature.vue";
+
 export default {
   components: {
     FaqListItems,
     TheHeader,
+    TheFeature,
   },
   data() {
     return {
