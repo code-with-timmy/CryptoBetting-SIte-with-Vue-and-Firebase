@@ -284,8 +284,8 @@ export default {
   },
   methods: {
     validateAmount() {
-      this.isAmountValid = !(this.amount < this.miniWithdraw);
-      this.isAmountExceedsBalance = this.user.accountBalance < this.amount;
+      // this.isAmountValid = !(this.amount < this.miniWithdraw);
+      // this.isAmountExceedsBalance = this.user.accountBalance < this.amount;
     },
     switchTab(tab) {
       this.activeTab = tab;
