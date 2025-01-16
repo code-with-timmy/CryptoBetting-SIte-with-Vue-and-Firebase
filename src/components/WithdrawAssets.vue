@@ -259,7 +259,7 @@ export default {
       amount: null,
       address: "",
       isLoading: false,
-      miniWithdraw: 300000,
+      miniWithdraw: 50000,
       showDialog: false,
       dialogMessage: "",
       isAmountValid: true,
