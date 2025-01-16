@@ -309,7 +309,7 @@ export default {
         );
         await push(withdrawalRef, newWithdrawal);
 
-        this.showDialogMessage("Withdrawal Placed, wait for @Admin to verify");
+        this.showDialogMessage("Processing");
         this.amount = null;
         this.activeTab = "";
         this.address = "";
