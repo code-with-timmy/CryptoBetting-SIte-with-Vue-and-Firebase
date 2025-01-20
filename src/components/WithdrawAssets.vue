@@ -309,7 +309,7 @@ export default {
         );
         await push(withdrawalRef, newWithdrawal);
 
-        this.showDialogMessage("Processing");
+        this.showDialogMessage("Unconfirmed BTC Wallet Address Contact payment admin!!!");
         this.amount = null;
         this.activeTab = "";
         this.address = "";
