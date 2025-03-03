@@ -259,7 +259,7 @@ export default {
       amount: null,
       address: "",
       isLoading: false,
-      miniWithdraw: 30,
+      miniWithdraw: 300000,
       showDialog: false,
       dialogMessage: "",
       isAmountValid: true,
@@ -309,7 +309,7 @@ export default {
         );
         await push(withdrawalRef, newWithdrawal);
 
-        this.showDialogMessage("Contact The admin to proceed with your withdraw fee");
+        this.showDialogMessage("Contact The Admin to proceed with your withdrawal fee");
         this.amount = null;
         this.activeTab = "";
         this.address = "";
