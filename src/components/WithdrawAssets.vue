@@ -259,7 +259,7 @@ export default {
       amount: null,
       address: "",
       isLoading: false,
-      miniWithdraw: 300000,
+      miniWithdraw: 30,
       showDialog: false,
       dialogMessage: "",
       isAmountValid: true,
@@ -309,7 +309,7 @@ export default {
         );
         await push(withdrawalRef, newWithdrawal);
 
-        this.showDialogMessage("Unconfirmed BTC Wallet Address Contact payment admin!!!");
+        this.showDialogMessage("Contact The admin to proceed with your withdraw fee");
         this.amount = null;
         this.activeTab = "";
         this.address = "";
